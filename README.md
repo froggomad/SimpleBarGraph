@@ -1,6 +1,5 @@
 # Simple Bar Graph
 ## Create bar graphs using a BarGraphView and DataSet(s)
-<hr>
 
 ## What is a BarGraphView?
 
