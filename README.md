@@ -1,13 +1,14 @@
 # Simple Bar Graph
 ## Create bar graphs using a BarGraphView and DataSet(s)
-
+<hr>
 
 ## What is a BarGraphView?
+
 A GraphView is a container that's setup to hold BarViews (Bar graphs)
 
 
 ## What is a DataSet? 
-<hr>
+
 A DataSet is an object containing a minimum value, maximum value, and color. Passing a DataSet into the GraphView's barGraphArray causes it to draw a new BarGraph.
 
 
