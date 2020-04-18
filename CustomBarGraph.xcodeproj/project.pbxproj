@@ -110,8 +110,8 @@
 		B933814F2448F9C2008C0D32 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B93381502448FAAA008C0D32 /* BarView.swift */,
 				B93381522448FAB7008C0D32 /* GraphView.swift */,
+				B93381502448FAAA008C0D32 /* BarView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";

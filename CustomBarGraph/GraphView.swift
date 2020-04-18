@@ -51,25 +51,28 @@ class GraphView: UIView {
             default: return 150
             }
         }
-        if barGraphArray.count != dataArray.count {
-            for (index, dataSet) in dataArray.enumerated() {
-                let rect = CGRect(x: barXOffset * CGFloat(index),
-                                  y: barYOffset,
-                                  width: bounds.width / CGFloat(dataArray.count),
-                                  height: bounds.height)
-                let barView = BarView(frame: rect,
-                                      dataSet: dataSet)
-                barGraphArray.append(barView)
-                addSubview(barView)
-            }
+        for (index, dataSet) in dataArray.enumerated() {
+            let rect = CGRect(x: barXOffset * CGFloat(index),
+                              y: barYOffset,
+                              width: bounds.width / CGFloat(dataArray.count),
+                              height: bounds.height)
+            let barView = BarView(frame: rect,
+                                  dataSet: dataSet)
+            barGraphArray.append(barView)
+            addSubview(barView)
         }
+
     }
 
+    ///remove the BarView associated with the corresponding DataSet
     func removeBarGraph(dataSet: DataSet) {
         guard let index = dataArray.firstIndex(of: dataSet) else { return }
+        //remove all barGraphs from the superview
         for barGraph in barGraphArray {
             barGraph.removeFromSuperview()
         }
+        barGraphArray = []
+        //redraw bargraphs
         dataArray.remove(at: index)
     }
 

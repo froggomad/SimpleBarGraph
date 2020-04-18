@@ -21,6 +21,6 @@ class ViewController: UIViewController {
         graphView.dataArray = dataArray
 
         //uncomment to remove a barGraph and see how it redraws
-        //graphView.removeBarGraph(dataSet: dataArray[0])
+        graphView.removeBarGraph(dataSet: dataArray[1])
     }
 }
