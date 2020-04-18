@@ -14,5 +14,5 @@ A DataSet is an object containing a minimum value, maximum value, and color. Pas
 ### Upcoming Features:
 
 * Update bar graph's value and draw the change appropriately.
-* Remove bar graphs
+* Remove bar graphs (beta in release 0.2)
 * Animate value changes
