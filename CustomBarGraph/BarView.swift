@@ -9,18 +9,22 @@
 import UIKit
 
 class BarView: UIView {
-
+    var id: UUID
+    ///changing this value will redraw the view
     var maxVal:CGFloat {
         didSet {
             setNeedsDisplay()
         }
     }
+
+    ///changing this value will redraw the view
     var value:CGFloat {
         didSet {
             setNeedsDisplay()
         }
     }
 
+    ///changing this value will redraw the view
     var color: UIColor {
         didSet {
             setNeedsDisplay()
@@ -28,12 +32,11 @@ class BarView: UIView {
     }
 
     init(frame: CGRect,
-                  maxVal: CGFloat = 100.0,
-                  value: CGFloat = 0.0,
-                  color: UIColor = .blue) {
-        self.maxVal = maxVal
-        self.value = value
-        self.color = color
+         dataSet: DataSet) {
+        self.id = dataSet.id
+        self.maxVal = dataSet.maxVal
+        self.value = dataSet.value
+        self.color = dataSet.color
         super.init(frame: frame)
         setupView()
     }
@@ -42,6 +45,7 @@ class BarView: UIView {
         maxVal = 100.0
         value = 0.0
         color = .blue
+        self.id = UUID()
         super.init(coder: coder)
         setupView()
     }

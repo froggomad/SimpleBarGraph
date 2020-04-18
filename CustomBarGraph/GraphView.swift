@@ -10,13 +10,14 @@ import UIKit
 
 @IBDesignable
 class GraphView: UIView {
+    
     var dataArray: [DataSet] {
         didSet {
             setupSubviews()
         }
     }
 
-    var barGraphArray: [BarView] = []
+    private var barGraphArray: [BarView] = []
 
     init(frame: CGRect, dataArray: [DataSet] = []) {
         self.dataArray = dataArray
@@ -30,13 +31,14 @@ class GraphView: UIView {
         setupSubviews()
     }
 
-    func setupSubviews() {
+    private func setupSubviews() {
         backgroundColor = .clear
+
         var barXOffset: CGFloat {
             let padding:CGFloat = 8
             let offset = bounds.width / CGFloat(dataArray.count) + padding
             switch offset {
-                case let x where x>40:
+            case let x where x>40:
                 return 40 + padding
             default: return offset
             }
@@ -49,19 +51,26 @@ class GraphView: UIView {
             default: return 150
             }
         }
-
-        for (index, dataSet) in dataArray.enumerated() {
-            let rect = CGRect(x: barXOffset * CGFloat(index),
-                              y: barYOffset,
-                              width: bounds.width / CGFloat(dataArray.count),
-                              height: bounds.height)
-            let barView = BarView(frame: rect,
-                                  maxVal: dataSet.maxVal,
-                                  value: dataSet.value,
-                                  color: dataSet.color)
-            barGraphArray.append(barView)
-            addSubview(barView)
+        if barGraphArray.count != dataArray.count {
+            for (index, dataSet) in dataArray.enumerated() {
+                let rect = CGRect(x: barXOffset * CGFloat(index),
+                                  y: barYOffset,
+                                  width: bounds.width / CGFloat(dataArray.count),
+                                  height: bounds.height)
+                let barView = BarView(frame: rect,
+                                      dataSet: dataSet)
+                barGraphArray.append(barView)
+                addSubview(barView)
+            }
         }
+    }
+
+    func removeBarGraph(dataSet: DataSet) {
+        guard let index = dataArray.firstIndex(of: dataSet) else { return }
+        for barGraph in barGraphArray {
+            barGraph.removeFromSuperview()
+        }
+        dataArray.remove(at: index)
     }
 
 }

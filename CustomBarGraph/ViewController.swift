@@ -19,5 +19,8 @@ class ViewController: UIViewController {
             DataSet(maxVal: 100, value: 90, color: .red)
         ]
         graphView.dataArray = dataArray
+
+        //uncomment to remove a barGraph and see how it redraws
+        //graphView.removeBarGraph(dataSet: dataArray[0])
     }
 }
