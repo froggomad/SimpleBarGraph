@@ -19,7 +19,8 @@ class GraphView: UIView {
 
     private var barGraphArray: [BarView] = []
 
-    init(frame: CGRect, dataArray: [DataSet] = []) {
+    init(frame: CGRect,
+         dataArray: [DataSet] = []) {
         self.dataArray = dataArray
         super.init(frame: frame)
         setupSubviews()
@@ -51,6 +52,7 @@ class GraphView: UIView {
             default: return 150
             }
         }
+
         for (index, dataSet) in dataArray.enumerated() {
             let rect = CGRect(x: barXOffset * CGFloat(index),
                               y: barYOffset,
@@ -61,7 +63,6 @@ class GraphView: UIView {
             barGraphArray.append(barView)
             addSubview(barView)
         }
-
     }
 
     ///remove the BarView associated with the corresponding DataSet
