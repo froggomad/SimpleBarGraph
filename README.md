@@ -1,7 +1,7 @@
 # Simple Bar Graph
-## Create bar graphs using a BarGraphView and DataSet(s)
+## Create bar graphs using a GraphView and DataSet(s)
 
-## What is a BarGraphView?
+## What is a GraphView?
 
 A GraphView is a container that's setup to hold BarViews (Bar graphs)
 
